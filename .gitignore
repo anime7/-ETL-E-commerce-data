@@ -1,0 +1,6 @@
+.env                # Ignore environment files
+credentials.txt     # Or any file containing secrets
+__pycache__         # Ignore Python bytecode cache
+*.pyc               # Ignore compiled Python files
+data/original_data  # Ignore your large original data directory (optional, but recommended)
+                   # Add other patterns to ignore as needed (e.g., temporary files, logs, etc.)
