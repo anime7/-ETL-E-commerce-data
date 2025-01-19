@@ -32,9 +32,8 @@ This project cleans, transforms, and loads Brazilian e-commerce data into a Post
 * `data/`: Contains original and transformed data (transformed data might be excluded due to size).
 * `original_data/`: Contains the original Kaggle CSV files.
 * `Result_csv/`: Contains results of SQL queries (CSV format).
-* `scripts/`: Contains the Python ETL script and SQL scripts.
-    * `complete_updated.ipynb`: Jupyter Notebook for ETL.
-    * `TABLE.sql`: SQL script for table creation and queries.
+* `complete_updated.ipynb`: Jupyter Notebook for ETL.
+* `TABLE.sql`: SQL script for table creation and queries.
 
 
 ## Running the Project
