@@ -1,54 +1,40 @@
 # E-commerce Data ETL and Analysis
 
-This project performs ETL (Extract, Transform, Load) on a Kaggle e-commerce dataset and then uses SQL queries to answer key business questions.
+This project performs ETL (Extract, Transform, Load) on a Kaggle e-commerce dataset and uses SQL queries to answer key business questions.
 
 ## Project Overview
 
-The project aims to clean, transform, and load e-commerce data into a PostgreSQL database, enabling efficient analysis and reporting.  A Python script handles the data extraction, cleaning, transformation, and loading processes. SQL queries are then used to extract insights and answer specific business questions.
+This project cleans, transforms, and loads Brazilian e-commerce data into a PostgreSQL database for analysis. A Python script handles the ETL process, and SQL queries provide insights.
 
 ## Data Sources and Destination
 
-* **Source:** Kaggle e-commerce dataset (CSV files).  The dataset includes information on customers, orders, products, sellers, geolocation, payments, and reviews.  [Provide a link to the Kaggle dataset if it's publicly available].
-* **Destination:** PostgreSQL database.  The following tables are created in the database:
-    * `customer_df`
-    * `geolocation_df`
-    * `order_items_df`
-    * `order_payments_df`
-    * `order_reviews_df`
-    * `order_orders_df`
-    * `products_df`
-    * `sellers_df`
-    * `product_category_df`
+* **Source:** [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+* **Destination:** PostgreSQL database
 
 ## Data Transformations
 
-The Python ETL script performs the following transformations:
-
-* **Handling Missing Values:**
-    * `order_reviews_df`: Missing values in `review_comment_title` and `review_comment_message` are filled with "No comment".
-    * `order_orders_df`: Rows with missing values in `order_approved_at`, `order_delivered_carrier_date`, or `order_delivered_customer_date` are dropped.
-    * `products_df`: Missing categorical values are filled with "unknown," and missing numerical values are filled with the mean of the respective column.
+* **Handling Missing Values:** Missing values are filled or rows dropped strategically (see `complete_updated.ipynb` for details).
 * **Removing Duplicates:** Duplicate rows are removed from `geolocation_df`.
-* **Data Type Conversion:** Date and time columns are converted to the appropriate datetime format.
+* **Data Type Conversion:** Date/time columns are converted to the appropriate format.
 
 ## Business Questions
 
-[Please provide the specific business questions the project aims to answer.  Be as precise as possible. Examples:]
+1. Analyze sales and revenue trends over time (daily, weekly, monthly).
+2. Identify the best-selling products by revenue or quantity.
+3. Analyze sales and revenue by customer location (city and state).
+4. Calculate the average order value (overall and by location).
+5. Determine the average customer rating (overall and by product/category).
+6. Analyze seller performance (sales and ratings).
 
-* What are the top 5 selling product categories by revenue?
-* Which customer segment has the highest average order value?
-* How does order volume vary by month and year?
-* What is the average customer rating by product category?
 
 ## Project Structure
 
-* `data/`: Contains the original Kaggle CSV files and potentially transformed data files (although these might not be committed to the repository due to size).
-* `original_data/`: Contains the original Kaggle CSV data files.
-* `Result_csv/`:  Contains the results of the SQL queries used to answer the business questions, saved as CSV files.
-* `scripts/`: Contains the Python ETL script and the SQL script.
-    * `complete_updated.ipynb`: The main Jupyter Notebook that performs the ETL process.
-    * `TABLE.sql`: SQL script to create tables (and optionally contains the SQL queries to answer the business questions).  [If the business questions are answered in a separate .sql file or within the Jupyter Notebook, clarify this here].
-
+* `data/`: Contains original and transformed data (transformed data might be excluded due to size).
+* `original_data/`: Contains the original Kaggle CSV files.
+* `Result_csv/`: Contains results of SQL queries (CSV format).
+* `scripts/`: Contains the Python ETL script and SQL scripts.
+    * `complete_updated.ipynb`: Jupyter Notebook for ETL.
+    * `TABLE.sql`: SQL script for table creation and queries.
 
 
 ## Running the Project
